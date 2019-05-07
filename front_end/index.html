@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>FrontEnd</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+</head>
+
+<body onload="GetCurrentUser();">
+
+    <div class="container">
+        <nav class="navbar navbar-light" style="background-color: #07d9c7;">
+            <b>
+                <a class="navbar-brand">
+                    <section class="light">
+                        <h6 class="gradient1">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUZSURBVGhD7dlliHRVHMfxtcVGUbE7wUZRbBQTC0FfKIqJDQYqIjZ2K3ZiK+oLFbsLA4wXdncndv4+d+Y8z+W6z7rrzBbOD77sPXfnzt5z/nnO9vXUU089/S+0ZNg/XBHuDPeG68PRYbUwkGYLu4RLwx3h7nB1OCQsF0ZES4f7w1/h1XB5OLHNeeHh8Ht4JewcJgtFM4Uzwk/ho3BdODl49oLwVPgj+H4LNWzaPfwQbg4Drfrc4bDwbXgwzBkWDib3RtgqTBH604LhlvB9WMONbmu78GuwyoPV/OGJ4OVfD4+EmcO/iRXPDR+EwXx+0OK3v4Q9q9E/tXjYKRwfrg1PhtvCVeGywNW44o3hmiAu/P78cGRYPdRdkKYOLwWu2DUJ5FtblxO0WDg1vBO8JL4MJnJ4MOm3gvt/hs/a1/DcAe2frCQuWO2IMGMo2j58HqaqRh1qleBFBDlxlxsCNyuT4DbbBKtIs4aHwtfhnuD3ZWIy1PthkVDEou77LknABGiWwJprVaMOdWZ4LgjOQ4MgtOr+2DdB1po2FPHpF9sI3JKlZLhnwzSBa70Wpg9Fvl8KLlaTAVnC5PcNHeuFwM/VCu6xQZgjMLk/VvdtFpE6WWB2N6K7gixnwqxEVppVTq9GE+X5l4NM92m4KTweTggdyer91sYXzhNI4Xs6NH33nPBhmK8atfRe2DGcFW53o61NArdZqhpNFEt/Ebjyx8FnLFhHkv+ZWUDO4EYkRgRnM8evHdzfqBq1ZEKeXzXIWCp5XY+Fi1qXEyTYvbzvXz5wS9bsSF6aj3KFooODwlbXlEEMXFyNJmqHICmoBw8EqbauLcLPobhhke/fo3XZt1+QsjvSXMFq1mV1miu7W1DFZau6rgwSg2QgwzWLqQAXd/quurixxEI+c1Drsrvi5ye1LisJ0HdDc7Xd5+tbB24phfeXRrmW4ljXM4ElirpSR5oS6Je0LiupH1Jy3f1oy6Avmy6sHMRK8zOk72LNyatRS6zk/rDquKB4FfF9rUZTGj8vpIJr998M/WneYJIlewlwSaMZN13XxsFKS81LBC6zbKhLpfYy0u56Qc/FkpOSai4xkGZRLRp28f2vgsAVkBq7phTQ+1qXVcH8JOxajfqXPcxRYYWgOTX5EZFdoMqsdTnGjZqWCVKuukIrBq6zQDXqXzKhDuDtwHojJj1S6WzXdKMtq/9oYDEvpkprHJ8PA+m04LtYRnIYUdlDaNvrqVHKNAm7QcVUA/ldmNQ+pkjbb+Jd3UQNRfV9tRTLv7etRi2p3FKzvfpAMunmxmpUpKcSMyry3m10rFqTC8O4kDZG2y5LCXRuhQPDj6HeCY9ZLRoEvaJYD9KSDBTPMS8tiIwk27CEtLlQ0DtJp6xU33+POemX9FpqhWyjenthBc9PGy4updUYk9LBquQ6WvsFWaqpvYLWpLQbY0ZS4krB3toeXU/kZZtttb7rlGBLPJQDvBHRhsHqioH/gtZcH2Z3p7aY7KjIH143rP8f2SzsE5yEiBkHCTpbjWERi28enOj7nO1tPfs5Q7Zhs/E6O4x63Gk9bFe1/6wlXTsvE2v27E7lncZzX7h2CKhTKMemninP1hdjVKRQ6pi9kC7AaiuoRazBKqwjhbNWvXVhEZZZpxqNsqRv/wexeXL6Mq7lvMxB3rHVaJxr06CoDut/psj5rjac/DTu9j0n9Q6uaajPDloOFMrhsZ/G3b7n8M+ZMA312Z566qmnca2+vr8BP15Q2wJ3e4oAAAAASUVORK5CYII=">Багира тур
+                        </h6>
+                    </section>
+                </a>
+            </b>
+            <form class="form-inline">
+                <div id="login">
+                </div>
+            </form>
+        </nav>
+        <form>
+            <div class="d-flex bd-highlight search">
+                <div class="p-2 flex-grow-1 bd-highlight .">
+                    <input type="text" id="hotelAndCountryAndCityNameSearch" class="form-control" name="name" placeholder="Страна город или отель">
+                </div>
+                <div class="p-2 flex-grow-0 bd-highlight">
+                    <input class="form-control" id="arrivalDateSearch" type="date">
+                </div>
+                <div class="p-2 flex-grow-0 bd-highlight">
+                    <select id="numberNightsSearch" class="form-control">
+                        <option value="0">любое</option>
+                        <option value="1 ночь">1 ночь</option>
+                        <option value="2 ночи">2 ночи</option>
+                        <option value="3 ночи">3 ночи</option>
+                        <option value="4 ночи">4 ночи</option>
+                        <option value="5 ночей">5 ночей</option>
+                        <option value="6 ночей">6 ночей</option>
+                        <option value="7 ночей" selected>7 ночей</option>
+                        <option value="8 ночей">8 ночей</option>
+                        <option value="9 ночей">9 ночей</option>
+                        <option value="10 ночей">10 ночей</option>
+                        <option value="10 ночей">11 ночей</option>
+                        <option value="12 ночей">12 ночей</option>
+                        <option value="13 ночей">13 ночей</option>
+                        <option value="14 ночей">14 ночей</option>
+                        <option value="15 ночей">15 ночей</option>
+                        <option value="16 ночей">16 ночей</option>
+                        <option value="17 ночей">17 ночей</option>
+                        <option value="18 ночей">18 ночей</option>
+                        <option value="19 ночей">19 ночей</option>
+                    </select>
+                </div>
+                <div class="p-2 flex-grow-0 bd-highlight">
+                    <select id="numberPersonSearch" class="form-control">
+                        <option value="0">любое</option>
+                        <option value="1">1 взрослый</option>
+                        <option value="2" selected>2 взрослых</option>
+                        <option value="3">3 взрослых</option>
+                    </select>
+                </div>
+                <div class="p-2 flex-grow-1 bd-highlight">
+                    <select id="pointDepartureSearch" class="form-control">
+                        <option value="Москвы" selected>из Москвы</option>
+                        <option value="0">любое</option>
+                    </select>
+                </div>
+                <div class="p-2 bd-highlight ml-auto">
+                    <button type="button" class="btn btn-primary" onclick="SearchTour();">
+                        <img src="https://png.icons8.com/ios-glyphs/100/000000/search.png" width="23px" height="23px">Найти</button>
+                </div>
+            </div>
+        </form>
+        <div id="blogsDiv">
+        </div>
+
+        <!-- <div>
+    <select id="deleteDiv"></select>
+    <button onclick="DeleteBlog();">Delete</button>
+</div> -->
+        <!-- <br />
+<div>
+    <form>
+        <input id="createDiv" type="text" />
+    </form>
+    <button onclick="CreateBlog()">Create</button>
+</div> -->
+        <!-- <p>Simple text</p> -->
+        <br>
+        <div id="addTourButton">
+        </div>
+        <!-- <button type="button" class="btn btn-primary justify-content-end" onclick="GetCurrentUser();">
+            Проверка авторизации
+        </button> -->
+        <!-- Модальное окно - добавление и редактирование -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Добавить тур</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group" id="selectTouristDestinations">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputArrivalDate">Дата выезда</label>
+                                <input type="datetime-local" class="form-control" id="inputArrivalDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDepartureDate">Дата приезда</label>
+                                <input type="datetime-local" class="form-control" id="inputDepartureDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputCost">Цена($)</label>
+                                <input type="text" class="form-control" id="inputCost">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputNumberTransactions">Кол-во туров</label>
+                                <input type="text" class="form-control" id="inputNumberTransactions">
+                            </div>
+                            <div class="form-group" id="selectOperatorId">
+                            </div>
+                            <div class="form-group" id="selectTransportId">
+                            </div>
+                            <div class="form-group" id="selectFoodType">
+                            </div>
+                            <div class="form-group" id="selectRoomType">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputNumberPersons">Кол-во мест</label>
+                                <input type="text" class="form-control" id="inputNumberPersons">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button id="saveButtom" type="button" class="btn btn-primary" onclick="CreateTour();">Сохранить</button>
+                        <div id="msgAdd"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Модальное окно регистации-->
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Регистрация нового пользователя</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="msgClass">
+                                <div id="msg"></div>
+                                <div id="formError"></div>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email: </label>
+                                    <input class="form-control" type="text" id="Email" name="Email" aria-describedby="emailHelp" placeholder="Введите Email">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Пароль: </label>
+                                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Пароль">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Подтверждение пароля: </label>
+                                    <input type="password" class="form-control" id="PasswordConfirm" name="PasswordConfirm" placeholder="Повторите пароль">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="button" id="registerBtn" class="btn btn-primary">Регистрация</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Модальное окно входа-->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Вход для зарегистрированных пользователей</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="msgClass">
+                                <div id="msgLogin"></div>
+                                <div id="formErrorLogin"></div>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email: </label>
+                                    <input class="form-control" type="text" id="EmailLogin" name="EmailLogin" aria-describedby="emailHelp" placeholder="Введите email">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Пароль: </label>
+                                    <input type="password" class="form-control" id="PasswordLogin" name="PasswordLogin" placeholder="Пороль">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="button" id="loginBtn" class="btn btn-primary">Войти</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tourInfoModal">
+            Launch demo modal
+        </button> -->
+
+        <!-- Описание тура -->
+        <div class="modal fade" id="tourInfoModal" tabindex="-1" role="dialog" aria-labelledby="tourInfoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div id="hotelInfoHeader">
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex bd-highlight">
+                            <div class="p-2 bd-highlight">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <div id="photosDiv">
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Предыдущее</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Cледующее</span>
+                                    </a>
+                                </div>
+                                <div id="ratingDiv">
+                                </div>
+                                <div class="rating-buttom-div" id="ratingButtomDiv">
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow-1 bd-highlight">
+                                <div class="d-flex bd-highlight">
+                                    <div class="pad-2 bd-highlight">
+                                        <div class="card max-size-width">
+                                            <div class="card-header">
+                                                <div id="cardHeaderTourInfo">
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="cardBodyTourInfo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-2 flex-grow-1 bd-highlight">
+                                        <div class="alert alert-success cost-success" role="alert">
+                                            <span class="small-text">
+                                                <img src="https://png.icons8.com/material/40/000000/checked.png" width="16px" width="16px"> Цена проверена онлайн</span>
+                                        </div>
+                                        <p class="text-center-align">Цена тура:</p>
+                                        <div id="cardCostTourInfo">
+                                        </div>
+                                        <p class="text-center-align very-small-text">Цена с учетом топл. сбора</p>
+                                    </div>
+                                </div>
+                                <ul class="nav nav-tabs" id="tourTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="hotelInfo-tab" data-toggle="tab" href="#hotelInfo" role="tab" aria-controls="hotelInfo" aria-selected="true">Описание отеля</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="services-tab" data-toggle="tab" href="#services" role="tab" aria-controls="services" aria-selected="false">Услуги</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Карта</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="tourTabContent">
+                                    <div class="tab-pane fade show active" id="hotelInfo" role="tabpanel" aria-labelledby="hotelInfo-tab">
+                                        <div id="tabTourInfo">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="services-tab">
+                                        <div class="tab-ser-tour-info" id="tabSerTourInfo">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.9432727974418!2d32.41111951575722!3d34.75702178042005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e706c49e24deaf%3A0x33a373378a2a5554!2sDaphne+Hotel+Apartments!5e0!3m2!1sru!2sru!4v1528145751936"
+                                            width="733" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-start">
+                        <div class="card w-100">
+                            <h5 class="card-header">Заявка на подбор тура</h5>
+                            <div id="delsForm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Просмотр заявок -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DealsModal">
+            Launch demo modal
+        </button> -->
+
+        <div class="modal fade bd-example-modal-lg" id="DealsModal" tabindex="-1" role="dialog" aria-labelledby="DealsModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="DealsModalLabel">Мои заявки</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="dealsListDiv">
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Pineta Club Hotel</h6>
+                                </div>
+                                <div class="col">
+                                    Турция, Мармарис
+                                </div>
+                                <div class="col">
+                                    32863 руб.
+                                </div>
+                                <div class="col">
+                                    <span class="badge badge-info">Обработка</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
