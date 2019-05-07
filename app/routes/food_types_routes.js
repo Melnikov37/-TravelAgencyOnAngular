@@ -2,7 +2,7 @@ import { FoodTypes } from '../../models/food_types';
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function (app, db) {
-    app.get('/food_types/:id', (req, res) => {
+    app.get('/foodTypes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('foodTypes').findOne(details, (err, item) => {
@@ -13,7 +13,7 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.delete('/food_types/:id', (req, res) => {
+    app.delete('/foodTypes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('foodTypes').remove(details, (err, item) => {
@@ -24,7 +24,7 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.post('/food_types', (req, res) => {
+    app.post('/foodTypes', (req, res) => {
         const placeDestination = new FoodTypes(req.body.city, req.body.country);
         db.collection('foodTypes').insert(placeDestination, (err, result) => {
             if (err) {
@@ -34,7 +34,7 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.put('/food_types/:id', (req, res) => {
+    app.put('/foodTypes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         const placeDestination = new FoodTypes(req.body.city, req.body.country);

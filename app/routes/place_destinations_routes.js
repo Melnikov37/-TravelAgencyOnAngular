@@ -2,7 +2,7 @@ import { PlaceDestinations } from '../../models/place_destinations';
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function (app, db) {
-  app.get('/place_destinations/:id', (req, res) => {
+  app.get('/placeDestinations/:id', (req, res) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
     db.collection('placeDestinations').findOne(details, (err, item) => {
@@ -13,7 +13,7 @@ module.exports = function (app, db) {
       }
     });
   });
-  app.delete('/place_destinations/:id', (req, res) => {
+  app.delete('/placeDestinations/:id', (req, res) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
     db.collection('placeDestinations').remove(details, (err, item) => {
@@ -24,7 +24,7 @@ module.exports = function (app, db) {
       }
     });
   });
-  app.post('/place_destinations', (req, res) => {
+  app.post('/placeDestinations', (req, res) => {
     const placeDestination = new PlaceDestinations(req.body.city, req.body.country);
     db.collection('placeDestinations').insert(placeDestination, (err, result) => {
       if (err) {
@@ -34,7 +34,7 @@ module.exports = function (app, db) {
       }
     });
   });
-  app.put('/place_destinations/:id', (req, res) => {
+  app.put('/placeDestinations/:id', (req, res) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
     const placeDestination = new PlaceDestinations(req.body.city, req.body.country);

@@ -7,6 +7,8 @@ const tourOperatorsRoutes = require('./tour_operators_routes');
 const touristDestinationsRoutes = require('./tourist_destinations_routes');
 const transportRoutes = require('./transports_routes');
 const usersRoutes = require('./users_routes');
+const foodTypesRoutes = require('./food_types_routes');
+const roomTypesRoutes = require('./room_types_routes');
 
 module.exports = function (app, db) {
   placeDestinationsRoutes(app, db);
@@ -18,4 +20,6 @@ module.exports = function (app, db) {
   touristDestinationsRoutes(app, db);
   transportRoutes(app, db);
   usersRoutes(app, db);
+  foodTypesRoutes(app, db);
+  roomTypesRoutes(app, db);
 };

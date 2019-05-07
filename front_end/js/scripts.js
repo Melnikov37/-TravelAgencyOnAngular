@@ -249,14 +249,14 @@ function LoadTourInfo(tourId) {
     request.open("GET", "/touristDestinations/" + tour.touristDestinationId, false);
     request.send();
     let touristDestination = JSON.parse(request.responseText);
-    request.open("GET", "/foodTypes/" + tour.foodTypesId, false);
+    request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
     request.send();
     let placeDestination = JSON.parse(request.responseText);
-    request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
     touristDestination.placeDestination = placeDestination;
+    request.open("GET", "/foodTypes/" + tour.foodTypeId, false);
     request.send();
     let foodType = JSON.parse(request.responseText);
-    request.open("GET", "/roomTypes/" + tour.roomTypesId, false);
+    request.open("GET", "/roomTypes/" + tour.roomTypeId, false);
     request.send();
     let roomType = JSON.parse(request.responseText);
     tour.touristDestination = touristDestination
@@ -543,20 +543,20 @@ var Months = [
 function LoadTour(tourID) {
     if (tourID != null) {
         let request = new XMLHttpRequest();
-        request.open("GET", "/tours/" + tourId, false);
+        request.open("GET", "/tours/" + tourID, false);
         request.send();
         let tour = JSON.parse(request.responseText);
         request.open("GET", "/touristDestinations/" + tour.touristDestinationId, false);
         request.send();
         let touristDestination = JSON.parse(request.responseText);
-        request.open("GET", "/foodTypes/" + tour.foodTypesId, false);
+        request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
         request.send();
         let placeDestination = JSON.parse(request.responseText);
-        request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
         touristDestination.placeDestination = placeDestination;
+        request.open("GET", "/foodTypes/" + tour.foodTypeId, false);
         request.send();
         let foodType = JSON.parse(request.responseText);
-        request.open("GET", "/roomTypes/" + tour.roomTypesId, false);
+        request.open("GET", "/roomTypes/" + tour.roomTypeId, false);
         request.send();
         let roomType = JSON.parse(request.responseText);
         tour.touristDestination = touristDestination
@@ -566,20 +566,20 @@ function LoadTour(tourID) {
     } else {
         tourID = 1;
         let request = new XMLHttpRequest();
-        request.open("GET", "/tours/" + tourId, false);
+        request.open("GET", "/tours/" + tourID, false);
         request.send();
         let tour = JSON.parse(request.responseText);
         request.open("GET", "/touristDestinations/" + tour.touristDestinationId, false);
         request.send();
         let touristDestination = JSON.parse(request.responseText);
-        request.open("GET", "/foodTypes/" + tour.foodTypesId, false);
+        request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
         request.send();
         let placeDestination = JSON.parse(request.responseText);
-        request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
         touristDestination.placeDestination = placeDestination;
+        request.open("GET", "/foodTypes/" + tour.foodTypeId, false);
         request.send();
         let foodType = JSON.parse(request.responseText);
-        request.open("GET", "/roomTypes/" + tour.roomTypesId, false);
+        request.open("GET", "/roomTypes/" + tour.roomTypeId, false);
         request.send();
         let roomType = JSON.parse(request.responseText);
         tour.touristDestination = touristDestination
@@ -694,14 +694,14 @@ function LoadTours() {
         request.open("GET", "/touristDestinations/" + myObj[iad].touristDestinationId, false);
         request.send();
         let touristDestination = JSON.parse(request.responseText);
-        request.open("GET", "/foodTypes/" + myObj[iad].foodTypesId, false);
+        request.open("GET", "/foodTypes/" + myObj[iad].foodTypeId, false);
         request.send();
         let placeDestination = JSON.parse(request.responseText);
         request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
         touristDestination.placeDestination = placeDestination;
         request.send();
         let foodType = JSON.parse(request.responseText);
-        request.open("GET", "/roomTypes/" + myObj[iad].roomTypesId, false);
+        request.open("GET", "/roomTypes/" + myObj[iad].roomTypeId, false);
         request.send();
         let roomType = JSON.parse(request.responseText);
         myObj[iad].touristDestination = touristDestination

@@ -2,7 +2,7 @@ import { RoomTypes } from '../../models/room_types';
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function (app, db) {
-    app.get('/room_types/:id', (req, res) => {
+    app.get('/roomTypes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('roomTypes').findOne(details, (err, item) => {
@@ -13,7 +13,7 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.delete('/room_types/:id', (req, res) => {
+    app.delete('/roomTypes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('roomTypes').remove(details, (err, item) => {
@@ -24,7 +24,7 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.post('/room_types', (req, res) => {
+    app.post('/roomTypes', (req, res) => {
         const placeDestination = new RoomTypes(req.body.city, req.body.country);
         db.collection('roomTypes').insert(placeDestination, (err, result) => {
             if (err) {
@@ -34,7 +34,7 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.put('/room_types/:id', (req, res) => {
+    app.put('/roomTypes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         const placeDestination = new RoomTypes(req.body.city, req.body.country);

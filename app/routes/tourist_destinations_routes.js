@@ -2,7 +2,7 @@ import { TouristDestinations } from '../../models/tourist_destinations';
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function (app, db) {
-    app.get('/tourist_destinations/:id', (req, res) => {
+    app.get('/touristDestinations/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('touristDestinations').findOne(details, (err, item) => {
