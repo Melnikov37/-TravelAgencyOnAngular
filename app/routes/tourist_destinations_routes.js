@@ -25,7 +25,7 @@ module.exports = function (app, db) {
         });
     });
     app.post('/tourist_destinations', (req, res) => {
-        const touristDestinations = new TouristDestinations(req.body.hostelName, req.body.numberStars, req.body.placeDestinations);
+        const touristDestinations = new TouristDestinations(req.body.hotelName, req.body.numberStars, req.body.placeDestinations);
         db.collection('touristDestinations').insert(touristDestinations, (err, result) => {
             if (err) {
                 res.send({ 'error': 'An error has occurred' });
@@ -37,7 +37,7 @@ module.exports = function (app, db) {
     app.put('/tourist_destinations/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
-        const touristDestinations = new TouristDestinations(req.body.hostelName, req.body.numberStars, req.body.placeDestinations);
+        const touristDestinations = new TouristDestinations(req.body.hotelName, req.body.numberStars, req.body.placeDestinations);
         db.collection('touristDestinations').update(details, touristDestinations, (err, result) => {
             if (err) {
                 res.send({ 'error': 'An error has occurred' });

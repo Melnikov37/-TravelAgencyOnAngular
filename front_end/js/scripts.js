@@ -644,7 +644,7 @@ function DrawTour(myObj) {
     x += "<span class=\"sity\"> " + myObj.touristDestination.placeDestination.city + "</span>";
     x += "<h3 class=\"cost\">" + parseInt(myObj.tourCost * 62.0064) + " руб</h3>";
     x += "<br>";
-    x += "<button type=\"button\" class=\"btn btn-outline-primary btn-block\" data-toggle=\"modal\" data-target=\"#tourInfoModal\" onclick=\"LoadTourInfo(" + myObj._id + ");\">Просмотреть</button>";
+    x += "<button type=\"button\" class=\"btn btn-outline-primary btn-block\" data-toggle=\"modal\" data-target=\"#tourInfoModal\" onclick=\"LoadTourInfo(\'" + myObj._id + "\');\">Просмотреть</button>";
     x += "</div>";
 
     x += "<div class=\"col tour_info\">";
@@ -665,7 +665,7 @@ function DrawTour(myObj) {
         x += "<div class=\"dropdown\">";
         x += "<button class=\"btn btn-outline-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Действия</button>";
         x += "<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">";
-        x += "<button class=\"dropdown-item\" type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal\" onclick=\"LoadTour(" + myObj._id + ");\">Редактировать</button>";
+        x += "<button class=\"dropdown-item\" type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal\" onclick=\"LoadTour(\'" + myObj._id + "\');\">Редактировать</button>";
         x += "<button class=\"dropdown-item\" type=\"button\" onclick=\"DeleteTour(" +
             myObj._id +
             ");\">Удалить</button>";
@@ -696,11 +696,11 @@ function LoadTours() {
         let touristDestination = JSON.parse(request.responseText);
         request.open("GET", "/foodTypes/" + myObj[iad].foodTypeId, false);
         request.send();
-        let placeDestination = JSON.parse(request.responseText);
-        request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
-        touristDestination.placeDestination = placeDestination;
-        request.send();
         let foodType = JSON.parse(request.responseText);
+        request.open("GET", "/placeDestinations/" + touristDestination.placeDestinationId, false);
+        request.send();
+        let placeDestination = JSON.parse(request.responseText);
+        touristDestination.placeDestination = placeDestination;
         request.open("GET", "/roomTypes/" + myObj[iad].roomTypeId, false);
         request.send();
         let roomType = JSON.parse(request.responseText);
@@ -724,15 +724,17 @@ function LoadTours() {
             }
         }
         for (i in myObj) {
-            var arrivalDate = new Date(myObj[i].tourArrivalDate);
-            var departureDate = new Date(myObj[i].tourDepartureDate);
+            var arrivalDate =
+                new Date(myObj[i].tourArrivalDate);
+            var
+                epartureDate = new Date(myObj[i].tourDepartureDate);
             if ((HotelAndCountryAndCityNameSearch == myObj[i].touristDestination.hotelName || HotelAndCountryAndCityNameSearch == myObj[i].touristDestination.placeDestination.city || HotelAndCountryAndCityNameSearch == myObj[i].touristDestination.placeDestination.country) && СomparingDates(myObj[i].tourArrivalDate) && NumberNightsSearch == NumberNights(arrivalDate, departureDate) && NumberPersonSearch == myObj[i].tourNumberPerson && PointDepartureSearch == myObj[i].pointDeparture) {
                 DrawTour(myObj[i]);
             }
         }
     }
     document.getElementById("blogsDiv").innerHTML = x;
-    LoadTour(null);
+    //LoadTour(null);
     if (RoleUser == "admin") {
         var html = "";
         html += "<button type=\"button\" class=\"btn btn-primary justify-content-end\" data-toggle=\"modal\" data-target=\"#exampleModal\" onclick=\"LoadTouristDestinations(null);LoadTuorOperator(null);LoadTransports(null);ButtonAdd();\">Добавить тур</button>";

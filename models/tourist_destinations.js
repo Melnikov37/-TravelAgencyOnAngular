@@ -1,6 +1,6 @@
 export class TouristDestinations {
-    constructor(hostelName, numberStars, placeDestinationId, hotelSite, hotelPhone, hotelFax, hotelEmail, numberOfRooms, distanceToAirport, descriptionHotel) {
-        this.hostelName = hostelName;
+    constructor(hotelName, numberStars, placeDestinationId, hotelSite, hotelPhone, hotelFax, hotelEmail, numberOfRooms, distanceToAirport, descriptionHotel) {
+        this.hotelName = hotelName;
         this.numberStars = numberStars;
         this.placeDestinationId = placeDestinationId;
         this.hotelSite = hotelSite;
